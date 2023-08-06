@@ -1,5 +1,6 @@
-import ExpenseItem from "./components/ExpenseItem";
-import Expenses from "./components/Expenses";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
+import React from "react";
 
 function App() {
   const expenses = [
@@ -30,6 +31,12 @@ function App() {
       <Expenses expenses={expenses} />
     </div>
   );
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Lets get started"),
+  //   React.createElement(Expenses, { expenses: expenses })
+  // );
 }
 
 export default App;
