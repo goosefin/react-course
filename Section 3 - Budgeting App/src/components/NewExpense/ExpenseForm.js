@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const ExpenseForm = (props) => {
   const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
 
   const handleChange = (id, value) => {
@@ -56,10 +56,9 @@ const ExpenseForm = (props) => {
       amount: amount,
       date: new Date(date),
     };
-
     props.onSaveExpense(expenseData);
     setTitle("");
-    setAmount("");
+    setAmount(0);
     setDate("");
   };
   return (
