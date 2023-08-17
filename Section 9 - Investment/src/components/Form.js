@@ -1,9 +1,22 @@
 import { useState } from "react";
 
+const initialState = {
+  "current-savings": null,
+  "yearly-contribution": null,
+  "expected-return": null,
+  duration: null,
+};
 const Form = (props) => {
-  const [userInput, setUserInput] = useState({});
+  const [userInput, setUserInput] = useState(initialState);
 
-  const handleChange = (input, value) => {};
+  const handleChange = (input, value) => {
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
+        [input]: value,
+      };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +25,9 @@ const Form = (props) => {
     // props.calculateHandler();
   };
 
-  const handleReset = () => {};
+  const handleReset = () => {
+    setUserInput(initialState);
+  };
 
   return (
     <form onSubmit={handleSubmit} className="form">
@@ -21,6 +36,7 @@ const Form = (props) => {
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
             onChange={(e) => handleChange("current-savings", e.target.value)}
+            value={userInput["current-savings"]}
             type="number"
             id="current-savings"
           />
@@ -31,6 +47,7 @@ const Form = (props) => {
             onChange={(e) =>
               handleChange("yearly-contribution", e.target.value)
             }
+            value={userInput["yearly-contribution"]}
             type="number"
             id="yearly-contribution"
           />
@@ -43,6 +60,7 @@ const Form = (props) => {
           </label>
           <input
             onChange={(e) => handleChange("expected-return", e.target.value)}
+            value={userInput["expected-return"]}
             type="number"
             id="expected-return"
           />
@@ -51,6 +69,7 @@ const Form = (props) => {
           <label htmlFor="duration">Investment Duration (years)</label>
           <input
             onChange={(e) => handleChange("duration", e.target.value)}
+            value={userInput["duration"]}
             type="number"
             id="duration"
           />
