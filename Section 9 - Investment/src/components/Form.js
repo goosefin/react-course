@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const initialState = {
-  "current-savings": null,
-  "yearly-contribution": null,
-  "expected-return": null,
-  duration: null,
+  "current-savings": 1000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
 };
 const Form = (props) => {
   const [userInput, setUserInput] = useState(initialState);
@@ -13,16 +13,14 @@ const Form = (props) => {
     setUserInput((prevState) => {
       return {
         ...prevState,
-        [input]: value,
+        [input]: +value,
       };
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userInput);
-
-    // props.calculateHandler();
+    props.calculateHandler(userInput);
   };
 
   const handleReset = () => {
