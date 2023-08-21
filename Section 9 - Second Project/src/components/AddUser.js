@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import Wrapper from "./Wrapper";
 
 const AddUser = (props) => {
   const [name, setName] = useState("");
@@ -34,7 +35,7 @@ const AddUser = (props) => {
   };
 
   return (
-    <>
+    <Wrapper>
       <form className="form" onSubmit={handleSubmit}>
         <label>Username</label>
         <input onChange={handleNameChange} value={name} type="text" />
@@ -44,7 +45,7 @@ const AddUser = (props) => {
 
         <Button type="submit">Add User</Button>
       </form>
-    </>
+    </Wrapper>
   );
 };
 

@@ -8,7 +8,7 @@ const ErrorModal = (props) => {
         <h2>{props.title}</h2>
       </header>
       <div>
-        <p>Please enter a valid name and age (non-empty values)</p>
+        <p>{props.message}</p>
       </div>
       <footer>
         <Button>Okay</Button>

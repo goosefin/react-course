@@ -2,6 +2,7 @@ import { useState } from "react";
 import AddUser from "./components/AddUser";
 import Card from "./components/Card";
 import UserList from "./components/UserList";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -15,13 +16,13 @@ function App() {
   };
 
   return (
-    <div>
+    <Wrapper>
       <Card>
         <AddUser handleAddUser={handleAddUser} />
       </Card>
 
       <Card>{users && <UserList users={users} />}</Card>
-    </div>
+    </Wrapper>
   );
 }
 
