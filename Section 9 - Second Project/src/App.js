@@ -8,8 +8,6 @@ function App() {
   const [users, setUsers] = useState([]);
 
   const handleAddUser = (newUser) => {
-    console.log(newUser);
-    console.log(users);
     setUsers((prevState) => {
       return [newUser, ...prevState];
     });
@@ -17,11 +15,8 @@ function App() {
 
   return (
     <Wrapper>
-      <Card>
-        <AddUser handleAddUser={handleAddUser} />
-      </Card>
-
-      <Card>{users && <UserList users={users} />}</Card>
+      <AddUser handleAddUser={handleAddUser} />
+      <UserList users={users} />
     </Wrapper>
   );
 }
