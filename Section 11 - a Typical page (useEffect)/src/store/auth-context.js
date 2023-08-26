@@ -17,12 +17,12 @@ export const AuthContextProvider = (props) => {
 
   const logoutHandler = () => {
     //This line allows us to later check if the user is logged in
-    localStorage.setItem("isLoggedIn", "1");
+    localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   };
 
   const loginHandler = () => {
-    localStorage.removeItem("isLoggedIn");
+    localStorage.setItem("isLoggedIn", "1");
     setIsLoggedIn(true);
   };
 
