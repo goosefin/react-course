@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import "./App.css";
 import DemoOutput from "./components/demo/DemoOutput";
@@ -9,9 +9,9 @@ function App() {
 
   console.log("App running");
 
-  const toggle = (e) => {
+  const toggle = useCallback((e) => {
     setShowP((prevShow) => !prevShow);
-  };
+  }, []);
 
   return (
     <div className="app">
