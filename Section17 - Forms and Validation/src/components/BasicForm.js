@@ -5,7 +5,7 @@ const BasicForm = (props) => {
     value: firstName,
     isValid: firstNameIsValid,
     hasError: firstNameHasError,
-    valueChangeHandler: firstNameChangehandler,
+    valueChangeHandler: firstNameChangeHandler,
     inputBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
   } = useInput((value) => value.trim() !== "");
@@ -13,7 +13,7 @@ const BasicForm = (props) => {
     value: lastName,
     isValid: lastNameIsValid,
     hasError: lastNameHasError,
-    valueChangeHandler: lastNameChangehandler,
+    valueChangeHandler: lastNameChangeHandler,
     inputBlurHandler: lastNameBlurHandler,
     reset: resetLastName,
   } = useInput((value) => value.trim() !== "");
@@ -62,7 +62,7 @@ const BasicForm = (props) => {
             id="first-name"
             value={firstName}
             onBlur={firstNameBlurHandler}
-            onChange={firstNameBlurHandler}
+            onChange={firstNameChangeHandler}
           />
           {firstNameHasError && (
             <p className="error-text">Please enter valid name</p>
@@ -74,7 +74,7 @@ const BasicForm = (props) => {
             type="text"
             id="last-name"
             value={lastName}
-            onChange={lastNameBlurHandler}
+            onChange={lastNameChangeHandler}
             onBlur={lastNameBlurHandler}
           />
           {lastNameHasError && (
